@@ -84,16 +84,23 @@ var upperCasedCharacters = [
   "Y",
   "Z",
 ];
+
+// variables to store users choises
+var length;
+var lowerCase;
+var upperCase;
+var numeric;
+var specCharacters;
 // Function to prompt user for password options
 
 function getPasswordOptions() {
-  var lengthChoice = prompt(
+  length = prompt(
     "Please, choose length of password:\nAt least 10 characters but no more than 64"
   );
-  var lowerCase = confirm("Do you want your password to contain lowercases?");
-  var upperCase = confirm("Do you want your password to contain uppercases?");
-  var numeric = confirm("Do you want your password to contain numbers?");
-  var specCharacters = confirm("Do you want your password to contain symbols?");
+  lowerCase = confirm("Do you want your password to contain lowercases?");
+  upperCase = confirm("Do you want your password to contain uppercases?");
+  numeric = confirm("Do you want your password to contain numbers?");
+  specCharacters = confirm("Do you want your password to contain symbols?");
   if (
     lowerCase === false &&
     upperCase === false &&
@@ -109,7 +116,22 @@ function getRandom(arr) {
   return randomElement;
 }
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+  getPasswordOptions();
+  console.log(length);
+  console.log(lowerCase);
+  console.log(upperCase);
+  console.log(numeric);
+  console.log(specCharacters);
+  // need to check which arreys will be used by users choise F/T
+  // if trure that arrey will be pushed in to new arreyForPassword
+  // if there any other arrays that meets T they will be pushed to arreyForPassword
+  // make one array useing concat
+  // loop over take random characters using getRandom function
+  // save them char in new var[]
+  // use join() to convert array in a string, save it in a new var= your pasword
+  return "your password";
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
