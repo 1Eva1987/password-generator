@@ -103,10 +103,11 @@ function getPasswordOptions() {
     alert("At least one character type must be selected. Please try again!");
   }
 }
-getPasswordOptions();
 // Function for getting a random element from an array
-function getRandom(arr) {}
-
+function getRandom(arr) {
+  var randomElement = Math.floor(Math.random() * arr.length);
+  return randomElement;
+}
 // Function to generate password with user input
 function generatePassword() {}
 
