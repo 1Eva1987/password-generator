@@ -123,6 +123,21 @@ function generatePassword() {
   console.log(upperCase);
   console.log(numeric);
   console.log(specCharacters);
+  var arrayForPassword = [];
+  if (lowerCase === true) {
+    arrayForPassword = arrayForPassword.concat(lowerCasedCharacters);
+  }
+  if (upperCase === true) {
+    arrayForPassword = arrayForPassword.concat(upperCasedCharacters);
+  }
+  if (numeric === true) {
+    arrayForPassword = arrayForPassword.concat(numericCharacters);
+  }
+  if (specCharacters === true) {
+    arrayForPassword = arrayForPassword.concat(specialCharacters);
+  }
+  console.log(arrayForPassword);
+
   // need to check which arreys will be used by users choise F/T
   // if trure that arrey will be pushed in to new arreyForPassword
   // if there any other arrays that meets T they will be pushed to arreyForPassword
