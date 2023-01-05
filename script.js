@@ -92,8 +92,6 @@ var lowerCase;
 var upperCase;
 var numeric;
 var specCharacters;
-var arrayForPassword = [];
-var passwordArray = [];
 
 // Function to prompt user for password options
 
@@ -113,6 +111,7 @@ function getPasswordOptions() {
   ) {
     alert("At least one character type must be selected. Please try again!");
   }
+  return;
 }
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -123,6 +122,7 @@ function getRandom(arr) {
 function generatePassword() {
   getPasswordOptions();
   // ***** if user chose to use certain symbols they all are pushed in to one new arrey ArrayForPassword
+  var arrayForPassword = [];
   if (lowerCase === true) {
     arrayForPassword = arrayForPassword.concat(lowerCasedCharacters);
   }
@@ -139,13 +139,16 @@ function generatePassword() {
   //loop to get certain amount (user's choice) of random characters
   console.log(getRandom(arrayForPassword));
   console.log(length);
+  var passwordArray = [];
   while (length > 0) {
     passwordArray.push(arrayForPassword[getRandom(arrayForPassword)]);
     length--;
   }
   console.log(passwordArray);
   // use join() to convert array in a string, save it in a new var= your pasword
-  return "your password";
+  var generatedPassword = passwordArray.join("");
+  console.log(generatedPassword);
+  return generatedPassword;
 }
 
 // Get references to the #generate element
