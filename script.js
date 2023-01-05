@@ -93,12 +93,16 @@ var upperCase;
 var numeric;
 var specCharacters;
 
-// Function to prompt user for password options
-
 function getPasswordOptions() {
-  length = prompt(
-    "Please, choose length of password:\nAt least 10 characters but no more than 64"
-  );
+  // loop to prompt the user untill correct data is entered
+  var intake;
+  do {
+    intake = prompt(
+      "Please, choose length of the password:\nAt least 10 characters but no more than 64"
+    );
+  } while (intake < 10 || intake > 64 || isNaN(intake));
+  // end of loop
+  length = intake;
   lowerCase = confirm("Do you want your password to contain lowercases?");
   upperCase = confirm("Do you want your password to contain uppercases?");
   numeric = confirm("Do you want your password to contain numbers?");
@@ -113,11 +117,13 @@ function getPasswordOptions() {
   }
   return;
 }
+
 // Function for getting a random element from an array
 function getRandom(arr) {
   var randomElement = Math.floor(Math.random() * arr.length);
   return randomElement;
 }
+
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
