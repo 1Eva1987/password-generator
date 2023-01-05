@@ -85,14 +85,14 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-// variables to store users choises
-
+// storing users choises
 var length;
 var lowerCase;
 var upperCase;
 var numeric;
 var specCharacters;
 
+// Function to get usrers choises
 function getPasswordOptions() {
   // loop to prompt the user untill correct data is entered
   var intake;
@@ -113,9 +113,8 @@ function getPasswordOptions() {
     numeric === false &&
     specCharacters === false
   ) {
-    alert("At least one character type must be selected. Please try again!");
+    alert("At least one character type must be selected.\nPlease try again!");
   }
-  return;
 }
 
 // Function for getting a random element from an array
@@ -127,7 +126,6 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
-  // ***** if user chose to use certain symbols they all are pushed in to one new arrey ArrayForPassword
   var arrayForPassword = [];
   if (lowerCase === true) {
     arrayForPassword = arrayForPassword.concat(lowerCasedCharacters);
@@ -141,19 +139,14 @@ function generatePassword() {
   if (specCharacters === true) {
     arrayForPassword = arrayForPassword.concat(specialCharacters);
   }
-  console.log(arrayForPassword);
   //loop to get certain amount (user's choice) of random characters
-  console.log(getRandom(arrayForPassword));
-  console.log(length);
   var passwordArray = [];
   while (length > 0) {
     passwordArray.push(arrayForPassword[getRandom(arrayForPassword)]);
     length--;
   }
-  console.log(passwordArray);
-  // use join() to convert array in a string, save it in a new var= your pasword
+  // end of loop
   var generatedPassword = passwordArray.join("");
-  console.log(generatedPassword);
   return generatedPassword;
 }
 
